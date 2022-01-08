@@ -3,11 +3,15 @@ import 'package:stacked/stacked.dart';
 
 class HomeViewModel extends BaseViewModel{
   final String _title = "null";
-  get title => _title;
+  String get title => '$_title,$_counter';
+
+  late final int _counter;
+  int get counter => _counter;
+
   @override
 
-  void notifyListeners() {
-    // TODO: implement notifyListeners
-    super.notifyListeners();
+  void updateCounter() {
+ _counter++ ;
+super.notifyListeners();
   }
 }

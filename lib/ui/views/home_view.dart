@@ -11,7 +11,9 @@ class HomeView extends StatelessWidget {
       viewModelBuilder: () => HomeViewModel(),
       builder: (context, model, child) =>
           Scaffold(
-            body: Center(child: Text(model.title),),
+            body: Center(child: Text(model.title),
+            ),
+            floatingActionButton: FloatingActionButton(onPressed: () { model.updateCounter();},),
           ),
     );
   }
