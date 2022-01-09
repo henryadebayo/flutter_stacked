@@ -13,7 +13,7 @@ class HomeViewModel extends BaseViewModel{
     //get isMinuss => _isMinus;
 
   int _counter = 0;
-  int get counter => _counter;
+  int get counter => _counter == -1 ? _counter = 0: _counter;
 
   final String _appBarTitle = "Implementing Stacked";
 
