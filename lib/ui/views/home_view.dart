@@ -3,6 +3,8 @@ import 'package:flutter_stacked/ui/views/home_viewModel.dart';
 import 'package:stacked/stacked.dart';
 
 class HomeView extends StatelessWidget {
+  //bool isMinus =  model.;
+
   const HomeView({Key? key}) : super(key: key);
 
   @override
@@ -11,9 +13,37 @@ class HomeView extends StatelessWidget {
       viewModelBuilder: () => HomeViewModel(),
       builder: (context, model, child) =>
           Scaffold(
-            body: Center(child: Text(model.title),
+            appBar: AppBar(
+              title: Text(model.appBarTitle),
             ),
-            floatingActionButton: FloatingActionButton(onPressed: () { model.updateCounter();},),
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:[ Text(model.title),
+                SizedBox(height:20),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  child: Icon(Icons.add),
+                  onPressed: () { model.counterIncrement();},),
+                SizedBox(width:16),
+
+                FloatingActionButton(
+                  child: Icon(Icons.home_filled),
+                  onPressed: () { model.resetCounter();},),
+
+                SizedBox(width:16),
+                FloatingActionButton(
+                  child: Icon(Icons.remove),
+                  onPressed: () { model.counterDecrement();},),
+
+
+              ],
+            ),
+                SizedBox(height:50),
+                Text(model.bottomText),
+    ],
+    ),
           ),
     );
   }
